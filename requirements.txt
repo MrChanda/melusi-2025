@@ -1,0 +1,9 @@
+rasterio
+geopandas
+GDAL
+earthpy
+contextily
+pandas
+numpy
+matplotlib
+seaborn
