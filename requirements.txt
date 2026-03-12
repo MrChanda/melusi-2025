@@ -1,9 +1,25 @@
-rasterio
-geopandas
-GDAL
-earthpy
-contextily
-pandas
+# Melusi 2025 — Project Dependencies
+# Install with: pip install -q -r requirements.txt
+ 
+# Core data science
 numpy
+pandas
 matplotlib
 seaborn
+scipy
+ 
+# Geospatial — raster
+rasterio
+GDAL
+earthpy
+ 
+# Geospatial — vector
+geopandas
+contextily
+pyproj
+ 
+# LiDAR
+laspy
+ 
+# Utilities
+tqdm
