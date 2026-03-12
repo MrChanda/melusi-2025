@@ -92,8 +92,7 @@ def configure_plots() -> None:
     plt.rcParams.update({
         "figure.figsize":       (12, 8),
         "figure.dpi":           100,
-        "savefig.dpi":          150,      # higher res for report figures
-        "savefig.bbox_inches":  "tight",
+        "savefig.dpi":          150,
         "font.size":            11,
         "axes.titlesize":       13,
         "axes.labelsize":       11,
