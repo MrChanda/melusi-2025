@@ -24,6 +24,8 @@ import warnings
 
 PATHS = {
     "data_raw":    "/content/drive/MyDrive/MIT/MIT808/melusi-2025-data/raw/",
+    "geotiff":     "/content/drive/MyDrive/MIT/MIT808/melusi-2025-data/raw/GeoTIFF/Melusi_07032025Tif.tif",
+    "ecw":         "/content/drive/MyDrive/MIT/MIT808/melusi-2025-data/raw/ECW/melusi_RGB_07032025.ecw",
     "repo":        "/content/melusi-2025",
     "notebooks":   "/content/melusi-2025/notebooks",
     "src":         "/content/melusi-2025/src",
