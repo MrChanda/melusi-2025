@@ -61,8 +61,8 @@ REQUIRED_PACKAGES = {
 def check_packages(required: dict = None) -> None:
     """
     Verify that all required packages are importable.
-    Prints a status line for each and raises an error
-    if any are missing.
+    If any are missing, automatically installs them via pip.
+    Prints which packages were missing.
     """
     if required is None:
         required = REQUIRED_PACKAGES
@@ -75,12 +75,15 @@ def check_packages(required: dict = None) -> None:
             missing.append(pip_name)
 
     if missing:
-        print(f"❌ Missing packages: {', '.join(missing)}")
-        print(f"   Run: pip install -q {' '.join(missing)}")
-        raise ImportError("Install missing packages before continuing.")
+        print(f"❌ Missing packages detected: {', '.join(missing)}")
+        print("⏳ Installing missing packages...")
+        subprocess.check_call([sys.executable, "-m", "pip", "install", "-q", *missing])
+        print(f"✅ Installed missing packages: {', '.join(missing)}")
+        # After installation, try importing again to ensure success
+        for import_name in required.keys():
+            importlib.import_module(import_name)
     else:
         print(f"✅ All {len(required)} required packages available")
-
 
 def configure_plots() -> None:
     """
