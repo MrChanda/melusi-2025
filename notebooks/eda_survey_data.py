@@ -30,3 +30,33 @@ print("\nData types:\n", df.dtypes)
 print("\nFirst 5 rows:\n", df.head())
 print("\nSummary statistics for numeric columns:\n", df.describe())
 print("\nMissing values per column:\n", df.isnull().sum())
+
+#Some statistics that can be helpful:
+resident_population_df = df[df['is_member_resident'] == "Yes, resident"]
+population = resident_population_df["hhr_member_total"].sum()
+population_total = df["hhr_member_total"].sum() 
+print("Estimated resident population:", int(population))
+print("Estimated non-resident + resident  population:", int(population_total))
+dwelling_total = df.shape[0]
+print("Estimated number of dwellings:", int(dwelling_total))
+# Count the number of unique blocks
+num_unique_blocks = df['Blocks'].nunique()
+print("Number of unique blocks:", num_unique_blocks)
+num_unique_Longitude_coords = df['Longitude'].nunique()
+print("Number of unique Longitude_coords:", num_unique_Longitude_coords)
+num_unique_Latitude_coords = df['Latitude'].nunique()
+print("Number of unique Latitude_coords:", num_unique_Latitude_coords)
+
+#Checking if all rows are unique:
+# Count duplicate rows in the entire DataFrame
+num_duplicates = df.duplicated().sum()
+print("Number of duplicate rows:", num_duplicates)
+
+# If you want to actually see the duplicate rows
+duplicate_rows = df[df.duplicated()]
+print("Duplicate rows:")
+print(duplicate_rows)
+
+#checking the unique values for each column:
+unique_counts = df.nunique()
+unique_counts
