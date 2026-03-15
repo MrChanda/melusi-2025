@@ -11,7 +11,7 @@ import pandas as pd
 import os
 
 # Path to the CSV file
-survey_path = PATHS["data_raw"] + "Survey/BaselineData_V6_melusi.csv"
+survey_path = PATHS["data_raw"] + "Survey/DataBaseline_v2.csv"
 
 # Check if the file exists
 if os.path.exists(survey_path):
@@ -21,6 +21,7 @@ else:
 
 # Read the CSV with semicolon separator and correct encoding
 df = pd.read_csv(survey_path, sep=';', encoding='latin1')
+df = df[df['sites'] == "Melusi"]
 
 # Display basic summary
 print("Shape of dataset:", df.shape)
